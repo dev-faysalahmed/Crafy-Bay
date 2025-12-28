@@ -1,4 +1,5 @@
 import 'package:crafty_bay/app/app_color.dart';
+import 'package:crafty_bay/features/auth/presentation/screens/otp_verification_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widget/app_logo.dart';
 import 'package:email_validator/email_validator.dart';
@@ -89,6 +90,6 @@ class _SignInScreenState extends State<SignInScreen> {
     Navigator.pop(context);
   }
   void _onTabSignInButton() {
-
+    Navigator.pushNamed(context, OtpVerificationScreen.name);
   }
 }

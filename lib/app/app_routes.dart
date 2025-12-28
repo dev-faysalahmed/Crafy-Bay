@@ -1,3 +1,4 @@
+import 'package:crafty_bay/features/auth/presentation/screens/otp_verification_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/splash_screen.dart';
@@ -12,6 +13,8 @@ class AppRoutes {
       widget = SignUpScreen();
     }else if(settings.name == SignInScreen.name){
       widget = SignInScreen();
+    }else if(settings.name == OtpVerificationScreen.name){
+      widget = OtpVerificationScreen();
     }
 
     return MaterialPageRoute(builder: (context) => widget);
