@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Spacer(),
-          AppLogo(),
+          AppLogo(width: 100,),
           Spacer(),
           CircularProgressIndicator(),
           SizedBox(height: 16,),
