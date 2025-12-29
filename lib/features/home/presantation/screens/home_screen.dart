@@ -41,6 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
               }),
               _buildPopularProductList(),
+              SectionHeader(title: 'Special', onTapSeeAll: () {
+
+              }),
+              _buildSpecialProductList(),
+              SectionHeader(title: 'New', onTapSeeAll: () {}),
+              _buildNewProductList()
 
             ],
           ),
@@ -59,6 +65,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ProductCard();
               },),
             );
+  }
+  Widget _buildSpecialProductList() {
+    return SizedBox(
+      height: 170,
+      child: ListView.builder(
+        scrollDirection: .horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ProductCard();
+        },),
+    );
+  }
+  Widget _buildNewProductList() {
+    return SizedBox(
+      height: 170,
+      child: ListView.builder(
+        scrollDirection: .horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ProductCard();
+        },),
+    );
   }
 
   Widget _buildCategoriesList() {
