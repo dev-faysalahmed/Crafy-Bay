@@ -1,7 +1,5 @@
 import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/app/assets_paths.dart';
 import 'package:crafty_bay/app/constants.dart';
-import 'package:crafty_bay/features/cart/widget/inc_dec_button.dart';
 import 'package:crafty_bay/features/common/presentation/providers/main_nav_container_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
