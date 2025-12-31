@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: .horizontal,
                 itemCount: 8,
                 itemBuilder: (context, index) {
-                return CategoryCard();
+                //return CategoryCard(categoryModel: null,);
               }, separatorBuilder: (BuildContext context, int index) { return SizedBox(width: 8,); },),
             );
   }
