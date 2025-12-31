@@ -3,6 +3,8 @@ import 'package:crafty_bay/app/extensions/localization_extension.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/otp_verification_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widget/app_logo.dart';
+import 'package:crafty_bay/features/common/presentation/widget/language_selector.dart';
+import 'package:crafty_bay/features/common/presentation/widget/toggle_theme_mode.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +87,11 @@ class _SignInScreenState extends State<SignInScreen> {
                           text: ' ${localText.signInTextButtonText}',
                           recognizer: TapGestureRecognizer()..onTap = _onTabSignUpButton,
                       ),
-                    ]))
+                    ])),
+
+                SizedBox(height: 50,),
+                LanguageSelector(),
+                ToggleThemeMode()
               ],
             ),
           ),
@@ -98,7 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
     Navigator.pushNamed(context, OtpVerificationScreen.name);
   }
   void _onTabSignUpButton() {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, SignUpScreen.name);
   }
   void _onTabSignInButton() {
 

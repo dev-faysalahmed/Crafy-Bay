@@ -1,6 +1,7 @@
 import 'package:crafty_bay/app/app_color.dart';
 import 'package:crafty_bay/app/assets_paths.dart';
 import 'package:crafty_bay/app/constants.dart';
+import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:crafty_bay/features/home/presantation/widget/home_carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -86,7 +87,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SvgPicture.asset(AssetsPaths.vanLogoSvg),
           Spacer(),
-          CircleIconButton(icon: Icons.person, onTap: () {}),
+          CircleIconButton(icon: Icons.person, onTap: () {
+            Navigator.pushNamed(context, SignInScreen.name);
+          }),
           CircleIconButton(icon: Icons.call, onTap: () {}),
           CircleIconButton(icon: Icons.notifications_active, onTap: () {}),
         ],
