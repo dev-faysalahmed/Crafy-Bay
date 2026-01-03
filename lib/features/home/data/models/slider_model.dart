@@ -2,7 +2,7 @@ class SliderModel {
   final String id;
   final String photoUrl;
   final String description;
-  final String brand;
+  final String? brand;
 
   SliderModel({
     required this.id,
