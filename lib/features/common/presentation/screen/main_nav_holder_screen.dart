@@ -1,6 +1,7 @@
 import 'package:crafty_bay/app/app_color.dart';
 import 'package:crafty_bay/features/cart/presentation/screens/cart_list_screen.dart';
 import 'package:crafty_bay/features/category/presentation/screens/category_list_screen.dart';
+import 'package:crafty_bay/features/home/presantation/providers/home_slider_provider.dart';
 import 'package:crafty_bay/features/home/presantation/screens/home_screen.dart';
 import 'package:crafty_bay/features/wish_list/presentation/screens/wish_list_screen.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class _MainNavHolderScreenState extends State<MainNavHolderScreen> {
   void initState() {
     super.initState();
     context.read<CategoryListProvider>().fetchCategoryList();
+    context.read<HomeSliderProvider>().getHomeSlider();
   }
 
   @override

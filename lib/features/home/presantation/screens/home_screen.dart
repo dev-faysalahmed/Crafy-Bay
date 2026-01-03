@@ -4,6 +4,7 @@ import 'package:crafty_bay/app/constants.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:crafty_bay/features/category/presentation/providers/category_list_provider.dart';
 import 'package:crafty_bay/features/common/presentation/widget/center_circular_progress.dart';
+import 'package:crafty_bay/features/home/presantation/providers/home_slider_provider.dart';
 import 'package:crafty_bay/features/home/presantation/widget/home_carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -34,7 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
             spacing: 8,
             children: [
               ProductSearchField(),
-              HomeCarouselSlider(),
+              Consumer<HomeSliderProvider>(
+                builder: (context, homeSliderProvider, _) {
+                  if(homeSliderProvider.getHomeSliderInProgress){
+                    return SizedBox(
+                        height: 200,
+                        child: CenterCircularProgress());
+                  }
+                  return HomeCarouselSlider(homeSliderList: homeSliderProvider.homeSliderList,);
+                }
+              ),
               SectionHeader(title: 'All Categories', onTapSeeAll: () {
                 context.read<MainNavContainerProvider>().changeToCategories();
               }),

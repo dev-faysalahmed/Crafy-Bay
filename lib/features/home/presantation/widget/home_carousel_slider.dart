@@ -1,16 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:crafty_bay/app/app_color.dart';
+import 'package:crafty_bay/features/home/data/models/slider_model.dart';
 import 'package:flutter/material.dart';
 
 class HomeCarouselSlider extends StatefulWidget {
-  const HomeCarouselSlider({super.key});
+  const HomeCarouselSlider({super.key, required this.homeSliderList});
+
+  final List<SliderModel> homeSliderList;
 
   @override
   State<HomeCarouselSlider> createState() => _HomeCarouselSliderState();
 }
 
 class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
-
   final ValueNotifier<int> _selectedIndex = ValueNotifier(0);
 
   @override
@@ -19,28 +21,31 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-              height: 200,
+            height: 200,
             viewportFraction: 1,
             autoPlay: false,
             onPageChanged: (index, reason) {
               _selectedIndex.value = index;
             },
           ),
-          items: [1, 2, 3, 4, 5].map((i) {
+          items: widget.homeSliderList.map((slider) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(8)),
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(image: NetworkImage(slider.photoUrl), fit: .cover)
+                  ),
                   alignment: .center,
-                  child: Text('text $i', style: TextStyle(fontSize: 16.0)),
                 );
               },
             );
           }).toList(),
         ),
-        const SizedBox(height: 8,),
+        const SizedBox(height: 8),
         ValueListenableBuilder(
           valueListenable: _selectedIndex,
           builder: (context, selectedIndex, _) {
@@ -48,12 +53,16 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
               mainAxisAlignment: .center,
               spacing: 4,
               children: [
-                for(int i=0; i<5; i++)
-                  Container(width: 12, height: 12, decoration: BoxDecoration(
+                for (int i = 0; i < 5; i++)
+                  Container(
+                    width: 12,
+                    height: 12,
+                    decoration: BoxDecoration(
                       color: i == selectedIndex ? AppColor.themeColor : null,
                       border: Border.all(color: Colors.grey),
-                    borderRadius: .circular(16)
-                  ),)
+                      borderRadius: .circular(16),
+                    ),
+                  ),
               ],
             );
           },
